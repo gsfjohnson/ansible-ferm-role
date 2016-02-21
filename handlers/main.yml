@@ -1,0 +1,5 @@
+---
+
+- name: apply ferm
+  command: ferm /etc/ferm/ferm.conf
+

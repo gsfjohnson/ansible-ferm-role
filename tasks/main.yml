@@ -8,4 +8,5 @@
 
 - name: ferm.conf template
   template: dest=/etc/ferm/ferm.conf src=ferm.conf.j2
+  notify: [ 'apply ferm' ]
 
