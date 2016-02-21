@@ -1,0 +1,20 @@
+---
+
+ferm_pkg_name: ferm
+ferm_pkg_state: installed
+
+ferm_chain:
+- name: FORWARD
+  policy: ACCEPT
+  rules:
+  - REJECT reject-with icmp-host-prohibited;
+
+- name: INPUT
+  policy: ACCEPT
+  rules:
+  - mod state state (ESTABLISHED RELATED) ACCEPT;
+  - protocol icmp ACCEPT;
+  - interface lo ACCEPT;
+  - mod state state (NEW) proto tcp dport 22 ACCEPT;
+  - REJECT reject-with icmp-host-prohibited;
+

@@ -1,0 +1,11 @@
+---
+
+- name: install pkg
+  yum: name={{ferm_pkg_name}} state={{ferm_pkg_state}}
+
+- name: create etc dir
+  file: name=/etc/ferm state=directory owner=root group=root
+
+- name: ferm.conf template
+  template: dest=/etc/ferm/ferm.conf src=ferm.conf.j2
+
