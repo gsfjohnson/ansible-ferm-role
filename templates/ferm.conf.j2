@@ -1,6 +1,6 @@
 {% for chain in ferm_chain %}
 chain {{chain.name}} {
-{% if chain.policy is defined %}  policy {{chain.policy}}
+{% if chain.policy is defined %}  policy {{chain.policy}};
 {% endif %}
 {% for rule in chain.rules %}
   {{rule}}
